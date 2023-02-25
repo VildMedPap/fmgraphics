@@ -1,0 +1,15 @@
+[flake8]
+ignore =
+    D107, # Missing docstring in __init__
+    WPS303, # Found underscored number - Forbids to use underscores (_) in numbers.
+    WPS305, # Found `f` string - Forbid f strings.
+inline-quotes = double
+docstring-convention = google
+max-line-length = 99
+show-violation-links = True
+show-source = True
+exclude =
+    .git,
+    __pycache__,
+    .venv,
+    tests,

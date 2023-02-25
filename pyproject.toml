@@ -1,0 +1,105 @@
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+
+####################
+### PKG SPECIFIC ###
+####################
+
+
+[tool.poetry]
+name = "fmgraphics"
+version = "0.1.0"
+description = "A package for generating config.xml files for Football Manager graphics"
+authors = ["Sebastian Steenssøe <vildmedpap@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "fmgraphics", from = "src" }
+]
+include = ["src/**/*.yaml"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+####################
+### DEPENDENCIES ###
+####################
+
+
+[tool.poetry.group.dev]
+optional = true
+[tool.poetry.group.dev.dependencies]
+black = "^22.6.0"
+flake8 = "^4.0.1"
+ipython = "^8.10.0"
+isort = "^5.12.0"
+mypy = "^0.981"
+pre-commit = "^2.20.0"
+radon = "^5.1.0"
+
+[tool.poetry.group.test]
+optional = true
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.1"
+pytest-cov = "^4.0.0"
+pytest-custom_exit_code = "^0.3.0"
+pytest-pretty = "^1.1.0"
+
+[tool.poetry.group.jupyter]
+optional = true
+[tool.poetry.group.jupyter.dependencies]
+jupyterlab = "^3.6.1"
+
+
+####################
+### TOOLS CONFIG ###
+####################
+
+
+[tool.black]
+target-version = ["py310"]
+line-length = 99
+ipynb = false
+
+[tool.isort]
+py_version = 310
+profile = "black"
+combine_as_imports = true
+lines_after_imports = 2
+line_length = 99
+
+[tool.mypy]
+python_version = "3.10"
+cache_dir = ".cache/mypy/"
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+install_types = true
+no_implicit_optional = true
+non_interactive = true
+strict_equality = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+exclude = ['tests/']
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "src"]
+addopts = [
+    "-vv",
+    "--cov-report=term-missing",
+    "--cov=fmgraphics",
+    "--no-cov-on-fail",
+]
+console_output_style = "count"
+cache_dir = ".cache"
+
+[tool.coverage.run]
+branch = true
+data_file = ".cache/coverage"
