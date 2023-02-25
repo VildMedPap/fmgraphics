@@ -1,0 +1,83 @@
+repos:
+  - repo: local
+    hooks:
+      - id: black
+        name: Running black
+        stages: [commit]
+        language: system
+        entry: poetry run black
+        types: [python]
+
+      - id: isort
+        name: Running isort
+        stages: [commit]
+        language: system
+        entry: poetry run isort
+        types: [python]
+
+      - id: mypy
+        name: Running mypy
+        stages: [commit]
+        language: system
+        entry: poetry run mypy
+        types: [python]
+        exclude: |
+          (?x)^(
+            tests/
+          )
+
+      - id: flake8
+        name: Running flake8
+        stages: [commit]
+        language: system
+        entry: poetry run flake8
+        types: [python]
+        exclude: |
+          (?x)^(
+            tests/
+          )
+
+  - repo: https://github.com/asottile/add-trailing-comma
+    rev: v2.1.0
+    hooks:
+      - id: add-trailing-comma
+        name: Running add-trailing-comma
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: requirements-txt-fixer
+        name: Running requirements-txt-fixer
+
+      - id: trailing-whitespace
+        name: Running trailing-whitespace
+        exclude: ^(notebooks/)
+        args: [--markdown-linebreak-ext=md]
+
+      - id: end-of-file-fixer
+        name: Running end-of-file-fixer
+        exclude: ^(notebooks/)
+
+      - id: check-toml
+        name: Running check-toml
+
+      - id: check-symlinks
+        name: Running check-symlinks
+
+      - id: check-json
+        name: Running check-json
+
+      - id: check-yaml
+        name: Running check-yaml
+        args: ["--allow-multiple-documents"]
+
+      - id: check-added-large-files
+        name: Running check-added-large-files
+        args: ["--maxkb=1000"]
+
+      - id: check-merge-conflict
+        name: Running check-merge-conflict
+
+      - id: no-commit-to-branch
+        name: Running no-commit-to-branch
+        args: [--branch, master]
