@@ -78,14 +78,10 @@ jobs:
           poetry run pip install -U pip
           poetry install --with dev,test
 
+      - name: Check coding standard
+        if: always()
+        run: make ruff
+
       - name: Check type hinting
         if: always()
         run: make mypy
-
-      - name: Check coding standard
-        if: always()
-        run: make flake8
-
-      - name: Check sorting of imports
-        if: always()
-        run: make isort-lint

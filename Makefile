@@ -1,4 +1,4 @@
-.PHONY: help % test cc ci linting mypy flake8 isort-lint formatting black isort clean create-environment install-dependencies install-pre-commit-hooks install
+.PHONY: help % test cc ci linting mypy ruff formatting black ruff-fix clean create-environment install-dependencies install-pre-commit-hooks install
 .DEFAULT_GOAL := help
 
 # Virtual environment paths
@@ -26,24 +26,21 @@ cc: ## Compute cyclomatic complexity of source code
 
 ci: linting test ## Emulate CI pipeline (linters and tests)
 
-linting: mypy flake8 isort-lint ## Run all linters
+linting: ruff mypy ## Run all linters
+
+ruff:
+	@poetry run ruff check $(PKG_DIR)
 
 mypy:
 	@poetry run mypy $(PKG_DIR)
 
-flake8:
-	@poetry run flake8 $(PKG_DIR)
-
-isort-lint:
-	@poetry run isort --check-only $(PKG_DIR)
-
-formatting: black isort ## Run all formatters
+formatting: black ruff-fix ## Run all formatters
 
 black:
 	@poetry run black $(PKG_DIR) $(TEST_DIR)
 
-isort:
-	@poetry run isort $(PKG_DIR) $(TEST_DIR)
+ruff-fix:
+	@poetry run ruff check --fix $(PKG_DIR) $(TEST_DIR)
 
 clean: ## Clean all temporary folder/files on the project
 	@rm -rf $(ROOT_DIR)/.cache
