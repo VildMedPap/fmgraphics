@@ -8,13 +8,6 @@ repos:
         entry: poetry run black
         types: [python]
 
-      - id: isort
-        name: Running isort
-        stages: [commit]
-        language: system
-        entry: poetry run isort
-        types: [python]
-
       - id: mypy
         name: Running mypy
         stages: [commit]
@@ -26,11 +19,11 @@ repos:
             tests/
           )
 
-      - id: flake8
-        name: Running flake8
+      - id: ruff
+        name: Running ruff
         stages: [commit]
         language: system
-        entry: poetry run flake8
+        entry: poetry run ruff check
         types: [python]
         exclude: |
           (?x)^(
