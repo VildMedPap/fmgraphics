@@ -26,6 +26,7 @@ python = "^3.10"
 ####################
 ### DEPENDENCIES ###
 ####################
+lxml = "^4.9.2"
 
 
 [tool.poetry.group.dev]
@@ -78,7 +79,7 @@ line-length = 99
 docstring-quotes = "double"
 
 [tool.ruff.pydocstyle]
-convention = "google"
+convention = "numpy"
 
 [tool.ruff.isort]
 combine-as-imports = true

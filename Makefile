@@ -40,7 +40,7 @@ black:
 	@poetry run black $(PKG_DIR) $(TEST_DIR)
 
 ruff-fix:
-	@poetry run ruff check --fix $(PKG_DIR) $(TEST_DIR)
+	@poetry run ruff check --fix $(PKG_DIR)
 
 clean: ## Clean all temporary folder/files on the project
 	@rm -rf $(ROOT_DIR)/.cache
