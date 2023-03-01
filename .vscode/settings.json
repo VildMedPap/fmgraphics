@@ -12,5 +12,6 @@
   "python.formatting.blackArgs": ["--config=${workspaceFolder}/pyproject.toml"],
   "python.testing.pytestPath": "${workspaceFolder}/.venv/bin/pytest",
   "python.testing.pytestArgs": ["--config=${workspaceFolder}/pyproject.toml"],
-  "files.insertFinalNewline": true
+  "files.insertFinalNewline": true,
+  "autoDocstring.docstringFormat": "numpy"
 }
