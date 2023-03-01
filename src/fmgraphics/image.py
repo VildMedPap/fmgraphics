@@ -16,7 +16,7 @@ class Image:
         filepath : Path
             The path to the image file.
         asset : str
-            The type of asset (e.g. faces, logos, kits).
+            The type of asset (e.g. face, logo, kit).
 
         """
         self.filepath = filepath
