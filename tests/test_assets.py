@@ -1,12 +1,48 @@
 from pathlib import Path
 
-from fmgraphics.assets import Face
-from fmgraphics.image import Image
+from fmgraphics.assets import Face, Asset
 import lxml.etree
+import pytest
+
+
+class TestAsset:
+    def test_asset_key(self):
+        # Given
+        filepath = Path("./12345678.png")
+        asset = "faces"
+
+        # When
+        asset = Asset(filepath, asset)
+
+        # Then
+        assert asset.key == "12345678"
+
+    def test_asset_repr(self):
+        # Given
+        filepath = Path("./12345678.png")
+        asset = "faces"
+
+        # When
+        asset = Asset(filepath, asset)
+
+        # Then
+        assert repr(asset) == "Asset(key=12345678)"
+
+    def test_xml_path_not_implemented_error(self):
+        # Given
+        filepath = Path("./images/123.png")
+        asset = "faces"
+
+        # When
+        asset = Asset(filepath, asset)
+
+        # Then
+        with pytest.raises(NotImplementedError):
+            asset._xml_path
 
 
 class BaseAssetTest:
-    cls: Image
+    cls: Asset
     key: str
     path: Path
     asset: str
