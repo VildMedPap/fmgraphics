@@ -110,6 +110,7 @@ addopts = [
     "-vv",
     "--cov-report=term-missing",
     "--cov=fmgraphics",
+    "--cov-report=xml",
     "--no-cov-on-fail",
 ]
 console_output_style = "count"
@@ -118,3 +119,6 @@ cache_dir = ".cache"
 [tool.coverage.run]
 branch = true
 data_file = ".cache/coverage"
+
+[tool.coverage.xml]
+output = ".cache/coverage.xml"
