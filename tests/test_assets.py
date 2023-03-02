@@ -1,8 +1,16 @@
 from pathlib import Path
 
-from fmgraphics.assets import Face, Asset, Logo, LogoIcon, LogoHuge
+from fmgraphics.assets import (
+    Face,
+    Asset,
+    Logo,
+    LogoIcon,
+    LogoHuge,
+    KitsHome2D,
+    KitsAway2D,
+    KitsThird2D,
+)
 import lxml.etree
-import pytest
 
 
 class TestAsset:
@@ -146,5 +154,35 @@ class TestHugeLogo(BaseAssetTest):
     path = Path(f"./{key}.png")
     asset_category = "club"
     asset = "logo/huge"
+    xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
+    repr_ = f"{cls.__name__}(key={key})"
+
+
+class TestKitsHome2D(BaseAssetTest):
+    cls = KitsHome2D
+    key = "123"
+    path = Path(f"./{key}.png")
+    asset_category = "team"
+    asset = "kits/home"
+    xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
+    repr_ = f"{cls.__name__}(key={key})"
+
+
+class TestKitsAway2D(BaseAssetTest):
+    cls = KitsAway2D
+    key = "123"
+    path = Path(f"./{key}.png")
+    asset_category = "team"
+    asset = "kits/away"
+    xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
+    repr_ = f"{cls.__name__}(key={key})"
+
+
+class TestKitsThird2D(BaseAssetTest):
+    cls = KitsThird2D
+    key = "123"
+    path = Path(f"./{key}.png")
+    asset_category = "team"
+    asset = "kits/third"
     xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
     repr_ = f"{cls.__name__}(key={key})"
