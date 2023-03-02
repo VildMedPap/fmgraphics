@@ -9,4 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
--   Add `Image` base class
+-   `Asset` base class and classes for the following assets:
+    -   `Face`
+    -   `FaceIcon`
+    -   `Logo`
+    -   `LogoIcon`
+    -   `LogoHuge`
+    -   `KitHome2D`
+    -   `KitAway2D`
+    -   `KitThird2D`
+    -   `KitHome3D`
+    -   `KitAway3D`
+    -   `KitThird3D`
