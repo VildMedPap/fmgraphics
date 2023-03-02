@@ -145,7 +145,7 @@ class LogoHuge(Asset):
     """Class representing a huge logo asset in Football Manager graphics."""
 
     def __init__(self, filepath: Path):
-        """Initialize the HugeLogo class.
+        """Initialize the LogoHuge class.
 
         Parameters
         ----------
