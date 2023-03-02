@@ -8,18 +8,21 @@ from lxml.etree import Element, tostring
 class Asset:
     """A class representing a single asset in the Football Manager graphics."""
 
-    def __init__(self, filepath: Path, asset: str):
+    def __init__(self, filepath: Path, asset_category: str, asset: str):
         """Initialize the Asset class.
 
         Parameters
         ----------
         filepath : Path
             The path to the image file.
+        asset_category : str
+            The categpry of asset (e.g. club, person, etc.)
         asset : str
-            The type of asset (e.g. face, logo, kit).
+            The type of asset (e.g. portrait, logo, icon, etc.)
 
         """
         self.filepath = filepath
+        self.asset_category = asset_category
         self.asset = asset
 
     def __repr__(self) -> str:
@@ -78,7 +81,7 @@ class Asset:
             The xml path of the image.
 
         """
-        raise NotImplementedError
+        return f"graphics/pictures/{self.asset_category}/{self.key}/{self.asset}"
 
     @property
     def xml(self) -> Element:
@@ -107,12 +110,7 @@ class Face(Asset):
         filepath : Path
             The path to the image file.
         """
-        super().__init__(filepath, asset="face")
-
-    @property
-    def _xml_path(self) -> str:
-        """Return the path in the Football Manager graphics directory structure."""
-        return f"graphics/pictures/person/{self.key}/portrait"
+        super().__init__(filepath, asset_category="person", asset="portrait")
 
 
 class Logo(Asset):
@@ -126,16 +124,11 @@ class Logo(Asset):
         filepath : Path
             The path to the image file.
         """
-        super().__init__(filepath, asset="logo")
-
-    @property
-    def _xml_path(self) -> str:
-        """Return the path in the Football Manager graphics directory structure."""
-        return f"graphics/pictures/club/{self.key}/logo"
+        super().__init__(filepath, asset_category="club", asset="logo")
 
 
-class Icon(Asset):
-    """Class representing a ocon asset in Football Manager graphics."""
+class LogoIcon(Asset):
+    """Class representing an logo icon asset in Football Manager graphics."""
 
     def __init__(self, filepath: Path):
         """Initialize the Icon class.
@@ -145,15 +138,10 @@ class Icon(Asset):
         filepath : Path
             The path to the image file.
         """
-        super().__init__(filepath, asset="icon")
-
-    @property
-    def _xml_path(self) -> str:
-        """Return the path in the Football Manager graphics directory structure."""
-        return f"graphics/pictures/club/{self.key}/icon"
+        super().__init__(filepath, asset_category="club", asset="icon")
 
 
-class HugeLogo(Asset):
+class LogoHuge(Asset):
     """Class representing a huge logo asset in Football Manager graphics."""
 
     def __init__(self, filepath: Path):
@@ -164,9 +152,4 @@ class HugeLogo(Asset):
         filepath : Path
             The path to the image file.
         """
-        super().__init__(filepath, asset="huge_logo")
-
-    @property
-    def _xml_path(self) -> str:
-        """Return the path in the Football Manager graphics directory structure."""
-        return f"graphics/pictures/club/{self.key}/logo/huge"
+        super().__init__(filepath, asset_category="club", asset="logo/huge")
