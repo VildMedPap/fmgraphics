@@ -2,6 +2,7 @@ from pathlib import Path
 
 from fmgraphics.assets import (
     Face,
+    FaceIcon,
     Asset,
     Logo,
     LogoIcon,
@@ -127,6 +128,16 @@ class TestFace(BaseAssetTest):
     path = Path(f"./{key}.png")
     asset_category = "person"
     asset = "portrait"
+    xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
+    repr_ = f"{cls.__name__}(key={key})"
+
+
+class TestFaceIcon(BaseAssetTest):
+    cls = FaceIcon
+    key = "123"
+    path = Path(f"./{key}.png")
+    asset_category = "person"
+    asset = "icon"
     xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
     repr_ = f"{cls.__name__}(key={key})"
 
