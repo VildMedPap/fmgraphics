@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from fmgraphics.assets import Face, Asset, Logo, Icon, HugeLogo
+from fmgraphics.assets import Face, Asset, Logo, LogoIcon, LogoHuge
 import lxml.etree
 import pytest
 
@@ -8,43 +8,46 @@ import pytest
 class TestAsset:
     def test_asset_key(self):
         # Given
-        filepath = Path("./12345678.png")
-        asset = "faces"
+        filepath = Path("./123.png")
+        asset_category = ""
+        asset = ""
 
         # When
-        asset = Asset(filepath, asset)
+        asset = Asset(filepath, asset_category, asset)
 
         # Then
-        assert asset.key == "12345678"
+        assert asset.key == "123"
 
     def test_asset_repr(self):
         # Given
-        filepath = Path("./12345678.png")
-        asset = "faces"
+        filepath = Path("./123.png")
+        asset_category = ""
+        asset = ""
 
         # When
-        asset = Asset(filepath, asset)
+        asset = Asset(filepath, asset_category, asset)
 
         # Then
-        assert repr(asset) == "Asset(key=12345678)"
+        assert repr(asset) == "Asset(key=123)"
 
     def test_xml_path_not_implemented_error(self):
         # Given
-        filepath = Path("./images/123.png")
-        asset = "faces"
+        filepath = Path("./123.png")
+        asset_category = "a"
+        asset = "b"
 
         # When
-        asset = Asset(filepath, asset)
+        asset = Asset(filepath, asset_category, asset)
 
         # Then
-        with pytest.raises(NotImplementedError):
-            asset._xml_path
+        assert asset._xml_path == f"graphics/pictures/a/123/b"
 
 
 class BaseAssetTest:
     cls: Asset
     key: str
     path: Path
+    asset_category: str
     asset: str
     xml_path: str
     repr_: str
@@ -111,33 +114,37 @@ class TestFace(BaseAssetTest):
     cls = Face
     key = "123"
     path = Path(f"./{key}.png")
-    asset = "face"
-    xml_path = f"graphics/pictures/person/{key}/portrait"
-    repr_ = f"{asset.title()}(key={key})"
+    asset_category = "person"
+    asset = "portrait"
+    xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
+    repr_ = f"{cls.__name__}(key={key})"
 
 
 class TestLogo(BaseAssetTest):
     cls = Logo
     key = "123"
     path = Path(f"./{key}.png")
+    asset_category = "club"
     asset = "logo"
-    xml_path = f"graphics/pictures/club/{key}/logo"
-    repr_ = f"{asset.title()}(key={key})"
+    xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
+    repr_ = f"{cls.__name__}(key={key})"
 
 
 class TestIcon(BaseAssetTest):
-    cls = Icon
+    cls = LogoIcon
     key = "123"
     path = Path(f"./{key}.png")
+    asset_category = "club"
     asset = "icon"
-    xml_path = f"graphics/pictures/club/{key}/icon"
-    repr_ = f"{asset.title()}(key={key})"
+    xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
+    repr_ = f"{cls.__name__}(key={key})"
 
 
 class TestHugeLogo(BaseAssetTest):
-    cls = HugeLogo
+    cls = LogoHuge
     key = "123"
     path = Path(f"./{key}.png")
-    asset = "huge_logo"
-    xml_path = f"graphics/pictures/club/{key}/logo/huge"
-    repr_ = f"HugeLogo(key={key})"
+    asset_category = "club"
+    asset = "logo/huge"
+    xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
+    repr_ = f"{cls.__name__}(key={key})"
