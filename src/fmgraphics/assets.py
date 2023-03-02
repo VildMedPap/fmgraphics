@@ -155,11 +155,11 @@ class LogoHuge(Asset):
         super().__init__(filepath, asset_category="club", asset="logo/huge")
 
 
-class KitsHome2D(Asset):
+class KitHome2D(Asset):
     """Class representing a 2D home kit asset in Football Manager graphics."""
 
     def __init__(self, filepath: Path):
-        """Initialize the KitsHome2D class.
+        """Initialize the KitHome2D class.
 
         Parameters
         ----------
@@ -169,11 +169,11 @@ class KitsHome2D(Asset):
         super().__init__(filepath, asset_category="team", asset="kits/home")
 
 
-class KitsAway2D(Asset):
+class KitAway2D(Asset):
     """Class representing a 2D away kit asset in Football Manager graphics."""
 
     def __init__(self, filepath: Path):
-        """Initialize the KitsAway2D class.
+        """Initialize the KitAway2D class.
 
         Parameters
         ----------
@@ -183,11 +183,11 @@ class KitsAway2D(Asset):
         super().__init__(filepath, asset_category="team", asset="kits/away")
 
 
-class KitsThird2D(Asset):
+class KitThird2D(Asset):
     """Class representing a 2D third kit asset in Football Manager graphics."""
 
     def __init__(self, filepath: Path):
-        """Initialize the KitsThird2D class.
+        """Initialize the KitThird2D class.
 
         Parameters
         ----------
@@ -197,11 +197,11 @@ class KitsThird2D(Asset):
         super().__init__(filepath, asset_category="team", asset="kits/third")
 
 
-class KitsHome3D(Asset):
+class KitHome3D(Asset):
     """Class representing a 3D home kit asset in Football Manager graphics."""
 
     def __init__(self, filepath: Path):
-        """Initialize the KitsHome3D class.
+        """Initialize the KitHome3D class.
 
         Parameters
         ----------
@@ -211,11 +211,11 @@ class KitsHome3D(Asset):
         super().__init__(filepath, asset_category="team", asset="kit_textures/home")
 
 
-class KitsAway3D(Asset):
+class KitAway3D(Asset):
     """Class representing a 3D away kit asset in Football Manager graphics."""
 
     def __init__(self, filepath: Path):
-        """Initialize the KitsAway3D class.
+        """Initialize the KitAway3D class.
 
         Parameters
         ----------
@@ -225,11 +225,11 @@ class KitsAway3D(Asset):
         super().__init__(filepath, asset_category="team", asset="kit_textures/away")
 
 
-class KitsThird3D(Asset):
+class KitThird3D(Asset):
     """Class representing a 3D third kit asset in Football Manager graphics."""
 
     def __init__(self, filepath: Path):
-        """Initialize the KitsThird3D class.
+        """Initialize the KitThird3D class.
 
         Parameters
         ----------
