@@ -9,6 +9,9 @@ from fmgraphics.assets import (
     KitsHome2D,
     KitsAway2D,
     KitsThird2D,
+    KitsHome3D,
+    KitsAway3D,
+    KitsThird3D,
 )
 import lxml.etree
 
@@ -184,5 +187,35 @@ class TestKitsThird2D(BaseAssetTest):
     path = Path(f"./{key}.png")
     asset_category = "team"
     asset = "kits/third"
+    xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
+    repr_ = f"{cls.__name__}(key={key})"
+
+
+class TestKitsHome3D(BaseAssetTest):
+    cls = KitsHome3D
+    key = "123"
+    path = Path(f"./{key}.png")
+    asset_category = "team"
+    asset = "kit_textures/home"
+    xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
+    repr_ = f"{cls.__name__}(key={key})"
+
+
+class TestKitsAway3D(BaseAssetTest):
+    cls = KitsAway3D
+    key = "123"
+    path = Path(f"./{key}.png")
+    asset_category = "team"
+    asset = "kit_textures/away"
+    xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
+    repr_ = f"{cls.__name__}(key={key})"
+
+
+class TestKitsThird3D(BaseAssetTest):
+    cls = KitsThird3D
+    key = "123"
+    path = Path(f"./{key}.png")
+    asset_category = "team"
+    asset = "kit_textures/third"
     xml_path = f"graphics/pictures/{asset_category}/{key}/{asset}"
     repr_ = f"{cls.__name__}(key={key})"
