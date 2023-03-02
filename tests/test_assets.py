@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from fmgraphics.assets import Face, Asset, Logo, Icon
+from fmgraphics.assets import Face, Asset, Logo, Icon, HugeLogo
 import lxml.etree
 import pytest
 
@@ -132,3 +132,12 @@ class TestIcon(BaseAssetTest):
     asset = "icon"
     xml_path = f"graphics/pictures/club/{key}/icon"
     repr_ = f"{asset.title()}(key={key})"
+
+
+class TestHugeLogo(BaseAssetTest):
+    cls = HugeLogo
+    key = "123"
+    path = Path(f"./{key}.png")
+    asset = "huge_logo"
+    xml_path = f"graphics/pictures/club/{key}/logo/huge"
+    repr_ = f"HugeLogo(key={key})"
