@@ -153,3 +153,45 @@ class LogoHuge(Asset):
             The path to the image file.
         """
         super().__init__(filepath, asset_category="club", asset="logo/huge")
+
+
+class KitsHome2D(Asset):
+    """Class representing a 2D home kit asset in Football Manager graphics."""
+
+    def __init__(self, filepath: Path):
+        """Initialize the KitsHome2D class.
+
+        Parameters
+        ----------
+        filepath : Path
+            The path to the image file.
+        """
+        super().__init__(filepath, asset_category="team", asset="kits/home")
+
+
+class KitsAway2D(Asset):
+    """Class representing a 2D away kit asset in Football Manager graphics."""
+
+    def __init__(self, filepath: Path):
+        """Initialize the KitsAway2D class.
+
+        Parameters
+        ----------
+        filepath : Path
+            The path to the image file.
+        """
+        super().__init__(filepath, asset_category="team", asset="kits/away")
+
+
+class KitsThird2D(Asset):
+    """Class representing a 2D third kit asset in Football Manager graphics."""
+
+    def __init__(self, filepath: Path):
+        """Initialize the KitsThird2D class.
+
+        Parameters
+        ----------
+        filepath : Path
+            The path to the image file.
+        """
+        super().__init__(filepath, asset_category="team", asset="kits/third")
