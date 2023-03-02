@@ -6,12 +6,12 @@ from fmgraphics.assets import (
     Logo,
     LogoIcon,
     LogoHuge,
-    KitsHome2D,
-    KitsAway2D,
-    KitsThird2D,
-    KitsHome3D,
-    KitsAway3D,
-    KitsThird3D,
+    KitHome2D,
+    KitAway2D,
+    KitThird2D,
+    KitHome3D,
+    KitAway3D,
+    KitThird3D,
 )
 import lxml.etree
 
@@ -161,8 +161,8 @@ class TestHugeLogo(BaseAssetTest):
     repr_ = f"{cls.__name__}(key={key})"
 
 
-class TestKitsHome2D(BaseAssetTest):
-    cls = KitsHome2D
+class TestKitHome2D(BaseAssetTest):
+    cls = KitHome2D
     key = "123"
     path = Path(f"./{key}.png")
     asset_category = "team"
@@ -171,8 +171,8 @@ class TestKitsHome2D(BaseAssetTest):
     repr_ = f"{cls.__name__}(key={key})"
 
 
-class TestKitsAway2D(BaseAssetTest):
-    cls = KitsAway2D
+class TestKitAway2D(BaseAssetTest):
+    cls = KitAway2D
     key = "123"
     path = Path(f"./{key}.png")
     asset_category = "team"
@@ -181,8 +181,8 @@ class TestKitsAway2D(BaseAssetTest):
     repr_ = f"{cls.__name__}(key={key})"
 
 
-class TestKitsThird2D(BaseAssetTest):
-    cls = KitsThird2D
+class TestKitThird2D(BaseAssetTest):
+    cls = KitThird2D
     key = "123"
     path = Path(f"./{key}.png")
     asset_category = "team"
@@ -191,8 +191,8 @@ class TestKitsThird2D(BaseAssetTest):
     repr_ = f"{cls.__name__}(key={key})"
 
 
-class TestKitsHome3D(BaseAssetTest):
-    cls = KitsHome3D
+class TestKitHome3D(BaseAssetTest):
+    cls = KitHome3D
     key = "123"
     path = Path(f"./{key}.png")
     asset_category = "team"
@@ -201,8 +201,8 @@ class TestKitsHome3D(BaseAssetTest):
     repr_ = f"{cls.__name__}(key={key})"
 
 
-class TestKitsAway3D(BaseAssetTest):
-    cls = KitsAway3D
+class TestKitAway3D(BaseAssetTest):
+    cls = KitAway3D
     key = "123"
     path = Path(f"./{key}.png")
     asset_category = "team"
@@ -211,8 +211,8 @@ class TestKitsAway3D(BaseAssetTest):
     repr_ = f"{cls.__name__}(key={key})"
 
 
-class TestKitsThird3D(BaseAssetTest):
-    cls = KitsThird3D
+class TestKitThird3D(BaseAssetTest):
+    cls = KitThird3D
     key = "123"
     path = Path(f"./{key}.png")
     asset_category = "team"
