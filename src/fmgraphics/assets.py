@@ -113,3 +113,22 @@ class Face(Asset):
     def _xml_path(self) -> str:
         """Return the path in the Football Manager graphics directory structure."""
         return f"graphics/pictures/person/{self.key}/portrait"
+
+
+class Logo(Asset):
+    """Class representing a logo asset in Football Manager graphics."""
+
+    def __init__(self, filepath: Path):
+        """Initialize the Logo class.
+
+        Parameters
+        ----------
+        filepath : Path
+            The path to the image file.
+        """
+        super().__init__(filepath, asset="logo")
+
+    @property
+    def _xml_path(self) -> str:
+        """Return the path in the Football Manager graphics directory structure."""
+        return f"graphics/pictures/club/{self.key}/logo"
