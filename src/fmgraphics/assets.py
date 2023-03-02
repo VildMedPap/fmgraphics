@@ -113,6 +113,20 @@ class Face(Asset):
         super().__init__(filepath, asset_category="person", asset="portrait")
 
 
+class FaceIcon(Asset):
+    """Class representing a face icon asset in Football Manager graphics."""
+
+    def __init__(self, filepath: Path):
+        """Initialize the FaceIcon class.
+
+        Parameters
+        ----------
+        filepath : Path
+            The path to the image file.
+        """
+        super().__init__(filepath, asset_category="person", asset="icon")
+
+
 class Logo(Asset):
     """Class representing a logo asset in Football Manager graphics."""
 
