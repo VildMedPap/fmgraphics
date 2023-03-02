@@ -195,3 +195,45 @@ class KitsThird2D(Asset):
             The path to the image file.
         """
         super().__init__(filepath, asset_category="team", asset="kits/third")
+
+
+class KitsHome3D(Asset):
+    """Class representing a 3D home kit asset in Football Manager graphics."""
+
+    def __init__(self, filepath: Path):
+        """Initialize the KitsHome3D class.
+
+        Parameters
+        ----------
+        filepath : Path
+            The path to the image file.
+        """
+        super().__init__(filepath, asset_category="team", asset="kit_textures/home")
+
+
+class KitsAway3D(Asset):
+    """Class representing a 3D away kit asset in Football Manager graphics."""
+
+    def __init__(self, filepath: Path):
+        """Initialize the KitsAway3D class.
+
+        Parameters
+        ----------
+        filepath : Path
+            The path to the image file.
+        """
+        super().__init__(filepath, asset_category="team", asset="kit_textures/away")
+
+
+class KitsThird3D(Asset):
+    """Class representing a 3D third kit asset in Football Manager graphics."""
+
+    def __init__(self, filepath: Path):
+        """Initialize the KitsThird3D class.
+
+        Parameters
+        ----------
+        filepath : Path
+            The path to the image file.
+        """
+        super().__init__(filepath, asset_category="team", asset="kit_textures/third")
